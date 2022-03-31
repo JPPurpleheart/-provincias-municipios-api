@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(cors());
   
 // when get request is made, alldata() is called
-app.get('/', alldata);
+app.get('/nombreProvincia/', alldata);
    
 function alldata(request, response) {
        
@@ -25,7 +25,7 @@ function alldata(request, response) {
     response.send(nombreProvincias);
 }
   
-app.get('/:nombreProvincia/', searchNombreProvincia);
+app.get('/nombreProvincia/:nombreProvincia/', searchNombreProvincia);
   
 function searchNombreProvincia(request, response) {
     var nombreProvincia = request.params.nombreProvincia;
