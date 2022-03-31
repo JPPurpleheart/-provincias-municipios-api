@@ -1,45 +1,49 @@
-var fs = require('fs');
-   
-// json file with the data
-var data = fs.readFileSync('db.json');
-   
-var nombreProvincias = JSON.parse(data);
+var fs=require('fs');
+
+var data=fs.readFileSync('db.json');
+
+var nombreProvincias=JSON.parse(data);
+
 const express = require("express");
+
 const app = express();
-   
-// To solve the cors issue
+
 const cors=require('cors');
-    
-app.listen(process.env.PORT, 
-    () => console.log("Server Start at the Port"));
-    
+
+app.listen(process.env.PORT, () => console.log("Server Start at 5000 Port"));
+
 app.use(express.static('public'));
 app.use(cors());
-  
-// when get request is made, alldata() is called
-app.get('/nombreProvincia/', alldata);
-   
-function alldata(request, response) {
-       
-    // Returns all information about the nombreProvincias
+app.get('/nombreProvincias',alldata);
+
+function alldata(request,response)
+{
     response.send(nombreProvincias);
 }
-  
-app.get('/nombreProvincia/:nombreProvincia/', searchNombreProvincia);
-  
-function searchNombreProvincia(request, response) {
-    var nombreProvincia = request.params.nombreProvincia;
-    nombreProvincia = nombreProvincia.charAt(0).toUpperCase()
-        + nombreProvincia.slice(1).toLowerCase();
-       
-    if(nombreProvincias[nombreProvincia]) {
-        var reply = nombreProvincias[nombreProvincia];         
-    }
-    else {
-        var reply = {
-            status:"Not Found"
-        }
-    }
-       
+
+app.get('/nombreProvincias/:nombreProvincia/',searchnombreProvincia);
+
+function searchnombreProvincia(request,response)
+{
+	var word=request.params.nombreProvincia;
+	word=word.charAt(0).toUpperCase()+word.slice(1).toLowerCase();
+	console.log(word);
+	//console.log(nombreProvincias[word]);
+
+    if(nombreProvincias[word])
+	{
+		var reply=nombreProvincias[word];
+		
+	}
+	else
+	{
+		var reply={
+			status:"Not Found"
+		}
+	}
+
+    console.log(reply.boil);
+
     response.send(reply);
+
 }
