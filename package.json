@@ -1,0 +1,28 @@
+{
+  "name": "provincias-municipios-api",
+  "version": "1.0.0",
+  "description": "API Provincias y Municipios de Andalucía",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPPurpleheart/provincias-municipios-api.git"
+  },
+  "keywords": [
+    "provincias",
+    "municipios",
+    "andalucia",
+    "api",
+    "node.js",
+    "javascript",
+    "json"
+  ],
+  "author": "JPPurpleheart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JPPurpleheart/provincias-municipios-api/issues"
+  },
+  "homepage": "https://github.com/JPPurpleheart/provincias-municipios-api#readme"
+}
